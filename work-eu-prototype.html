@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#1264e8">
+<meta name="description" content="WorkEU — пошук роботи в Європі">
 <title>WorkEU — Робота в Європі</title>
 <style>
 :root{
   --blue:#1264e8; --blue-dark:#0b4bb5; --ink:#122033; --muted:#66758f;
-  --bg:#f5f7fb; --card:#fff; --line:#e3e8f2; --green:#16a34a; --orange:#f59e0b;
-  --red:#dc2626; --shadow:0 8px 24px rgba(18,32,51,.08);
+  --bg:#f5f7fb; --card:#fff; --line:#e3e8f2; --green:#16a34a;
+  --orange:#f59e0b; --red:#dc2626; --shadow:0 8px 24px rgba(18,32,51,.08);
   --radius:14px;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -17,7 +18,7 @@ html,body{margin:0;padding:0}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
   background:var(--bg); color:var(--ink); line-height:1.45;
-  padding-bottom:80px;
+  padding-bottom:90px;
 }
 a{color:var(--blue); text-decoration:none}
 button{font:inherit; cursor:pointer; border:0; background:none; color:inherit}
@@ -54,9 +55,7 @@ input,select,textarea{font:inherit; color:inherit}
 .hero p{margin:0; opacity:.9; font-size:15px}
 
 /* SEARCH */
-.search-wrap{
-  max-width:900px; margin:-22px auto 0; padding:0 14px;
-}
+.search-wrap{max-width:900px; margin:-22px auto 0; padding:0 14px}
 .search-card{
   background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
   padding:14px; display:grid; gap:10px;
@@ -64,11 +63,17 @@ input,select,textarea{font:inherit; color:inherit}
 .field{display:flex; flex-direction:column; gap:4px; text-align:left}
 .field label{font-size:12px; font-weight:600; color:var(--muted); padding-left:4px}
 .field input,.field select,.field textarea{
-  width:100%; padding:12px 12px; border:1px solid var(--line);
-  border-radius:10px; background:#fbfcff; font-size:15px; color:var(--ink);
+  width:100%; padding:12px; border:1px solid var(--line);
+  border-radius:10px; background:#fbfcff; font-size:15px;
 }
-.field select{appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%2366758f' stroke-width='2' fill='none'/></svg>"); background-repeat:no-repeat; background-position:right 12px center; padding-right:34px}
-.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--blue); border-color:var(--blue); background:#fff}
+.field select{
+  appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%2366758f' stroke-width='2' fill='none'/></svg>");
+  background-repeat:no-repeat; background-position:right 12px center; padding-right:34px;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:2px solid var(--blue); border-color:var(--blue); background:#fff;
+}
 
 /* FILTERS */
 .filters{
@@ -97,10 +102,7 @@ input,select,textarea{font:inherit; color:inherit}
 .card-top{display:flex; align-items:flex-start; gap:10px}
 .card-title{font-weight:700; font-size:16px; margin:0 0 2px}
 .card-company{font-size:13px; color:var(--muted); margin:0}
-.card-fav{
-  margin-left:auto; font-size:22px; line-height:1;
-  padding:2px 6px; border-radius:8px;
-}
+.card-fav{margin-left:auto; font-size:22px; line-height:1; padding:2px 6px; border-radius:8px}
 .card-meta{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px}
 .tag{
   font-size:12px; font-weight:600; padding:5px 9px; border-radius:8px;
@@ -121,13 +123,12 @@ input,select,textarea{font:inherit; color:inherit}
 .modal{
   position:fixed; inset:0; background:rgba(10,18,35,.55);
   z-index:100; display:none; align-items:flex-end; justify-content:center;
-  padding:0;
 }
 .modal.open{display:flex}
 .modal-inner{
   background:#fff; width:100%; max-width:700px;
   max-height:92vh; overflow-y:auto;
-  border-radius:18px 18px 0 0; padding:18px 16px 110px;
+  border-radius:18px 18px 0 0; padding:18px 16px 30px;
   animation:slideUp .25s ease;
 }
 @keyframes slideUp{from{transform:translateY(40px);opacity:.5}to{transform:none;opacity:1}}
@@ -144,7 +145,7 @@ input,select,textarea{font:inherit; color:inherit}
 .detail-section p{margin:0; font-size:15px}
 .info-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px}
 
-/* CONTACT BUTTONS */
+/* CONTACT */
 .contact-list{display:grid; gap:10px; margin-top:10px}
 .contact-btn{
   display:flex; align-items:center; gap:12px; padding:14px;
@@ -173,9 +174,7 @@ input,select,textarea{font:inherit; color:inherit}
   font-size:14px; font-weight:600;
 }
 .checkbox input{width:18px; height:18px; accent-color:var(--blue)}
-.success{
-  text-align:center; padding:30px 10px;
-}
+.success{text-align:center; padding:30px 10px}
 .success .big{font-size:52px}
 .success h3{margin:10px 0 6px; font-size:20px}
 .success p{color:var(--muted); margin:0 0 20px}
@@ -194,7 +193,6 @@ input,select,textarea{font:inherit; color:inherit}
   .modal-inner{border-radius:18px; padding-bottom:18px; max-height:86vh}
   .jobs{grid-template-columns:1fr 1fr}
   body{padding-bottom:0}
-  .sticky-bottom{position:sticky; max-width:900px; border-radius:14px; box-shadow:var(--shadow); margin:14px auto 0}
 }
 </style>
 </head>
@@ -203,21 +201,21 @@ input,select,textarea{font:inherit; color:inherit}
 <header class="header">
   <div class="logo">Work<span>EU</span></div>
   <div class="header-actions">
-    <button class="btn btn-ghost" id="favBtn">❤️ <span id="favCount">0</span></button>
-    <button class="btn btn-outline" onclick="alert('Реєстрація буде додана пізніше. Зараз сайт працює в гостьовому режимі.')">Вхід</button>
+    <button class="btn btn-ghost" id="favBtn" onclick="showFavorites()">❤️ <span id="favCount">0</span></button>
+    <button class="btn btn-outline" onclick="openLogin()">Вхід</button>
   </div>
 </header>
 
 <section class="hero">
   <h1>Робота в Європі</h1>
-  <p>Знайди вакансію за 2 хвилини:'. Без реєстрації.</p>
+  <p>Знайди вакансію за 2 хвилини. Без реєстрації.</p>
 </section>
 
-П<div class="search-wrap">
-  <form class="search-card" idра="searchForm">
+<div class="search-wrap">
+  <form class="search-card" id="searchForm">
     <div class="field">
-     ва <label>Що шукаєте?</label>
-      <input id="q" placeholder="Водій, склад, сварщик...">
+      <label>Що шукаєте?</label>
+      <input id="q" placeholder="Водій, склад, зварювальник...">
     </div>
     <div class="field">
       <label>Країна</label>
@@ -241,8 +239,8 @@ input,select,textarea{font:inherit; color:inherit}
 <footer class="footer">
   <div>© 2026 WorkEU — пошук роботи в Європі</div>
   <div style="margin-top:8px">
+    <a href="#" onclick="openEmployer();return false">Роботодавцям</a>
     <a href="#" onclick="alert('Скоро');return false">Про нас</a>
-    <a href="#" onclick="alert('Скоро');return false">Роботодавцям</a>
     <a href="#" onclick="alert('Скоро');return false">Контакти</a>
   </div>
 </footer>
@@ -267,7 +265,7 @@ input,select,textarea{font:inherit; color:inherit}
   <div class="modal-inner">
     <button class="modal-close" onclick="closeModal('formModal')">✕</button>
     <div id="formContent">
-      <h2 style="margin:4px 0 4px">Оставити заявку</h2>
+      <h2 style="margin:4px 0 4px">Залишити заявку</h2>
       <p style="color:var(--muted);margin:0">Коротка форма. Без реєстрації та пароля.</p>
       <form id="applyForm" class="form-row">
         <div class="field"><label>Ваше ім'я</label><input required id="fName" placeholder="Введіть ім'я"></div>
@@ -280,8 +278,50 @@ input,select,textarea{font:inherit; color:inherit}
             <label class="checkbox"><input type="checkbox" name="ch" value="Telegram"> Telegram</label>
           </div>
         </div>
-        <div class="field"><label>Повідомлення</label><textarea id="fMsg" rows="3" placeholder="Наприклад: Здравствуйте, заинтересовала ваша вакансия."></textarea></div>
+        <div class="field"><label>Повідомлення</label><textarea id="fMsg" rows="3" placeholder="Наприклад: Доброго дня, зацікавила ваша вакансія."></textarea></div>
         <button type="submit" class="btn btn-green btn-lg btn-block">Відправити заявку</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Модалка входу -->
+<div class="modal" id="loginModal">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2 style="margin:4px 0 8px">Вхід / Реєстрація</h2>
+    <p style="color:var(--muted);margin:0 0 14px">Зараз сайт працює в гостьовому режимі. Повна реєстрація з'явиться пізніше.</p>
+    <div class="form-row">
+      <div class="field"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label>Пароль</label><input type="password" placeholder="••••••••"></div>
+      <button class="btn btn-primary btn-lg btn-block" onclick="alert('Реєстрація буде додана найближчим часом')">Увійти</button>
+      <button class="btn btn-outline btn-lg btn-block" onclick="closeModal('loginModal')">Продовжити як гість</button>
+    </div>
+  </div>
+</div>
+
+<!-- Модалка роботодавця -->
+<div class="modal" id="employerModal">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('employerModal')">✕</button>
+    <div id="employerContent">
+      <h2 style="margin:4px 0 8px">Додати вакансію</h2>
+      <p style="color:var(--muted);margin:0 0 14px">Заповніть форму — вакансія з'явиться на сайті.</p>
+      <form id="employerForm" class="form-row">
+        <div class="field"><label>Назва вакансії *</label><input required id="eTitle" placeholder="Водій категорії C"></div>
+        <div class="field"><label>Компанія *</label><input required id="eCompany" placeholder="Назва компанії"></div>
+        <div class="field">
+          <label>Країна *</label>
+          <select required id="eCountry"><option value="">Оберіть країну</option></select>
+        </div>
+        <div class="field"><label>Місто *</label><input required id="eCity" placeholder="Прага"></div>
+        <div class="field"><label>Зарплата від</label><input type="number" id="eSalMin" placeholder="30000"></div>
+        <div class="field"><label>Зарплата до</label><input type="number" id="eSalMax" placeholder="45000"></div>
+        <div class="field"><label>Опис вакансії *</label><textarea required id="eDesc" rows="4" placeholder="Що потрібно робити..."></textarea></div>
+        <div class="field"><label>Вимоги</label><textarea id="eReq" rows="3" placeholder="Досвід, мова, документи..."></textarea></div>
+        <div class="field"><label>Умови</label><textarea id="eCond" rows="2" placeholder="Проживання, харчування, графік..."></textarea></div>
+        <div class="field"><label>Телефон для зв'язку</label><input id="ePhone" type="tel" placeholder="+420..."></div>
+        <button type="submit" class="btn btn-green btn-lg btn-block">Опублікувати вакансію</button>
       </form>
     </div>
   </div>
@@ -300,62 +340,121 @@ const COUNTRIES = [
   {code:'nl', name:'Нідерланди', currency:'€', cities:['Амстердам','Роттердам','Гаага','Утрехт']}
 ];
 
-const PROFESSIONS = ['Водій','Склад','Будівництво','Сварщик','Різноробочий','Кухар','Офіціант','Прибиральник','Касир','Охоронець','Електрик','Сантехнік','Медсестра','Логіст','Оператор'];
+const PROFESSIONS = ['Водій','Склад','Зварювальник','Будівництво','Кухар','Офіціант','Прибиральник','Різноробочий','Електрик','Слюсар','Медсестра','IT'];
 
-const JOBS = [
-  {id:1, title:'Складський працівник', company:'ABC Logistics', country:'cz', city:'Прага',
-   salMin:35000, salMax:45000, housing:true, noExp:true, contract:true,
-   description:'Робота на сучасному складі. Комплектація замовлень, сканування, пакування.',
-   requirements:'Уважність, базова українська/чеська, готовність до фізичної роботи.',
-   conditions:'Графік 5/2, 8-10 годин. Офіційне оформлення. Житло надається.',
-   about:'ABC Logistics — міжнародна логістична компанія з 15-річним досвідом.',
-   contacts:{phone:'+420111222333', viber:true, whatsapp:true, telegram:'abclogistics', email:'hr@abc.cz', form:true}},
+let JOBS = [
+  {id:1, title:'Водій категорії C', company:'TransCzech s.r.o.', country:'cz', city:'Прага',
+   salMin:45000, salMax:55000, housing:true, noExp:false, contract:true,
+   description:'Міжнародні перевезення по Європі. Сучасний автопарк.',
+   requirements:'Права категорії C, досвід від 1 року.',
+   conditions:'Проживання компенсується, добові.',
+   about:'Чеська транспортна компанія з 15-річним досвідом.',
+   contacts:{phone:'+420777123456', whatsapp:true, viber:true, form:true}},
 
-  {id:2, title:'Водій категорії B', company:'EuroTrans', country:'cz', city:'Брно',
-   salMin:40000, salMax:55000, housing:true, noExp:false, contract:true,
-   description:'Доставка товарів по Чехії та Словаччині. Автомобіль компанії.',
-   requirements категорії B, досвід від 1 року, знання чеської на базовому рівні.',
-   conditions:'Графік 5/2, офіційне працевлаштування, оплата житла частково.',
-   about:'EuroTrans — перевізник з парком 120 авто.',
-   contacts:{phone:'+420222333444', whatsapp:true, email:'work@eurotrans.cz', form:true}},
+  {id:2, title:'Робітник на склад', company:'LogiPark CZ', country:'cz', city:'Брно',
+   salMin:32000, salMax:38000, housing:false, noExp:true, contract:true,
+   description:'Прийом, комплектація та відвантаження товарів.',
+   requirements:'Без досвіду, навчимо. Фізична витривалість.',
+   conditions:'Графік 5/2, робочий одяг.',
+   about:'Великий логістичний центр у Брно.',
+   contacts:{phone:'+420602987654', telegram:'logipark', form:true}},
 
-  {id:3, title:'Сварщик MIG/MAG', company:'MetalPol', country:'pl', city:'Вроцлав',
-   salMin:5500, salMax:7500, housing:true, noExp:false, contract:true,
-   description:'Зварювання металоконструкцій. Робота на заводі.',
-   requirements:'Досвід від 2 років, сертифікат зварювальника вітається.',
-   conditions:'Графік 5/2, понаднормові, житло надається.',
-   about:'MetalPol — металообробний завод під Вроцлавом.',
-   contacts:{phone:'+48111222333', viber:true, telegram:'metalpol_hr', form:true}},
+  {id:3, title:'Зварювальник MIG/MAG', company:'MetalWorks PL', country:'pl', city:'Вроцлав',
+   salMin:5500, salMax:7000, housing:true, noExp:false, contract:true,
+   description:'Зварювання металоконструкцій.',
+   requirements:'Досвід зварювання від 1 року.',
+   conditions:'Проживання в гуртожитку, харчування.',
+   about:'Польська металообробна компанія.',
+   contacts:{phone:'+48501234567', whatsapp:true, form:true}},
 
-  {id:4, title:'Будівельник-оздоблювач', company:'BauMeister', country:'de', city:'Берлін',
-   salMin:2200, salMax:2800, housing:true, noExp:false, contract:true,
-   description:'Оздоблювальні роботи всередині приміщень. Гіпсокартон, штукатурка.',
-   requirements:'Досвід від 1 року, німецька на базовому рівні.',
-   conditions:'Графік 5/2, 8 годин, офіційне оформлення.',
-   about:'BauMeister — будівельна компанія в Берліні.',
-   contacts:{phone:'+491234567890', whatsapp:true, email:'info@baumeister.de', form:true}},
-
-  {id:5, title:'Кухар на кухню', company:'RestoVienna', country:'at', city:'Відень',
+  {id:4, title:'Кухар-універсал', company:'RestoVienna', country:'at', city:'Відень',
    salMin:1800, salMax:2200, housing:false, noExp:true, contract:true,
-   description:'Приготування страв європейської кухні. Робота в ресторані.',
+   description:'Приготування страв європейської кухні.',
    requirements:'Досвід не обов\'язковий, навчимо.',
    conditions:'Графік змінний, харчування на роботі.',
    about:'Сімейний ресторан у центрі Відня.',
    contacts:{phone:'+431234567', whatsapp:true, telegram:'restovienna', form:true}},
 
-  {id:6, title:'Різноробочий на ферму', company:'Farma Zelená', country:'sk', city:'Нітра',
+  {id:5, title:'Різноробочий на ферму', company:'Farma Zelená', country:'sk', city:'Нітра',
    salMin:900, salMax:1200, housing:true, noExp:true, contract:false,
    description:'Сезонні роботи: збір овочів, догляд за тваринами.',
    requirements:'Без досвіду, фізична витривалість.',
    conditions:'Проживання на фермі безкоштовно, харчування.',
    about:'Сімейна ферма в Словаччині.',
-   contacts:{phone:'+421912345678', viber:true, form:true}}
+   contacts:{phone:'+421912345678', viber:true, form:true}},
+
+  {id:6, title:'Будівельник', company:'BauMeister GmbH', country:'de', city:'Мюнхен',
+   salMin:2200, salMax:2800, housing:true, noExp:false, contract:true,
+   description:'Робота на будівельних об\'єктах.',
+   requirements:'Досвід у будівництві бажаний.',
+   conditions:'Проживання, інструмент від компанії.',
+   about:'Німецька будівельна фірма.',
+   contacts:{phone:'+491701234567', whatsapp:true, form:true}},
+
+  {id:7, title:'Офіціант', company:'Cafe Milano', country:'it', city:'Мілан',
+   salMin:1200, salMax:1600, housing:false, noExp:true, contract:true,
+   description:'Обслуговування гостей у кафе.',
+   requirements:'Базова італійська або англійська.',
+   conditions:'Чайові, знижки на їжу.',
+   about:'Популярне кафе в центрі Мілана.',
+   contacts:{phone:'+393331234567', telegram:'cafemilano', form:true}},
+
+  {id:8, title:'Прибиральник офісів', company:'CleanNL', country:'nl', city:'Амстердам',
+   salMin:1400, salMax:1700, housing:false, noExp:true, contract:true,
+   description:'Прибирання офісних приміщень.',
+   requirements:'Без досвіду.',
+   conditions:'Гнучкий графік, інструмент надається.',
+   about:'Нідерландська клінінгова компанія.',
+   contacts:{phone:'+31612345678', whatsapp:true, form:true}}
 ];
 
 /* ============ СТАН ============ */
-const state = { q:'', country:'', city:'', profession:'', favs: JSON.parse(localStorage.getItem('favs')||'[]') };
+const state = {
+  q: '',
+  country: '',
+  city: '',
+  profession: '',
+  favs: JSON.parse(localStorage.getItem('favs') || '[]'),
+  showFavOnly: false
+};
 
-/* ============ РЕНДЕР ФІЛЬТРІВ ============ */
+/* ============ ДОПОМІЖНІ ============ */
+function getCurrency(code){
+  const c = COUNTRIES.find(x => x.code === code);
+  return c ? c.currency : '';
+}
+function getCountryName(code){
+  const c = COUNTRIES.find(x => x.code === code);
+  return c ? c.name : code;
+}
+function formatSalary(job){
+  const cur = getCurrency(job.country);
+  if(job.salMin && job.salMax) return `${job.salMin.toLocaleString()} – ${job.salMax.toLocaleString()} ${cur}`;
+  if(job.salMin) return `від ${job.salMin.toLocaleString()} ${cur}`;
+  return 'За домовленістю';
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+}
+function openLogin(){
+  document.getElementById('loginModal').classList.add('open');
+}
+function openEmployer(){
+  // Заповнюємо select країн
+  const sel = document.getElementById('eCountry');
+  if(sel.options.length <= 1){
+    COUNTRIES.forEach(c => {
+      const o = document.createElement('option');
+      o.value = c.code; o.textContent = c.name;
+      sel.appendChild(o);
+    });
+  }
+  document.getElementById('employerForm').reset();
+  document.getElementById('employerContent').style.display = '';
+  document.getElementById('employerModal').classList.add('open');
+}
+
+/* ============ РЕНДЕР ============ */
 function renderCountryOptions(){
   const sel = document.getElementById('country');
   COUNTRIES.forEach(c => {
@@ -380,7 +479,9 @@ function renderProfessionChips(){
   box.innerHTML = '<button class="chip active" data-p="">Усі професії</button>';
   PROFESSIONS.forEach(p => {
     const b = document.createElement('button');
-    b.className = 'chip'; b.dataset.p = p; b.textContent = p;
+    b.className = 'chip';
+    b.dataset.p = p;
+    b.textContent = p;
     box.appendChild(b);
   });
   box.querySelectorAll('.chip').forEach(chip => {
@@ -388,198 +489,210 @@ function renderProfessionChips(){
       box.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       state.profession = chip.dataset.p;
+      state.showFavOnly = false;
       renderJobs();
     });
   });
 }
 
-/* ============ ПОШУК ============ */
 function filteredJobs(){
   const q = state.q.trim().toLowerCase();
   return JOBS.filter(j => {
+    if(state.showFavOnly && !state.favs.includes(j.id)) return false;
     if(state.country && j.country !== state.country) return false;
     if(state.city && j.city !== state.city) return false;
-    if(state.profession && !j.title.toLowerCase().includes(state.profession.toLowerCase())) return false;
+    if(state.profession){
+      const title = j.title.toLowerCase();
+      if(!title.includes(state.profession.toLowerCase())) return false;
+    }
     if(q){
-      const hay = (j.title + ' ' + j.company + ' ' + j.description).toLowerCase();
-      if(!hay.includes(q)) return false;
+      const text = (j.title + ' ' + j.company + ' ' + j.city + ' ' + j.description).toLowerCase();
+      if(!text.includes(q)) return false;
     }
     return true;
   });
 }
 
-/* ============ РЕНДЕР ВАКАНСІЙ ============ */
-function money(j){
-  const c = COUNTRIES.find(x => x.code === j.country);
-  const cur = c ? c.currency : '';
-  return j.salMin.toLocaleString('uk-UA') + '–' + j.salMax.toLocaleString('uk-UA') + ' ' + cur;
-}
 function renderJobs(){
-  const jobs = filteredJobs();
-  const countEl = document.getElementById('count');
-  countEl.textContent = jobs.length ? ('Знайдено: ' + jobs.length) : '';
+  const list = filteredJobs();
   const box = document.getElementById('jobs');
-  if(!jobs.length){
-    box.innerHTML = '<div class="empty">😕 Нічого не знайдено.<br>Спробуйте змінити фільтри.</div>';
+  document.getElementById('count').textContent = list.length
+    ? `Знайдено: ${list.length} вакансій`
+    : '';
+
+  if(!list.length){
+    box.innerHTML = `<div class="empty">${state.showFavOnly ? 'У вас поки немає обраних вакансій' : 'Вакансій за вашим запитом не знайдено'}</div>`;
     return;
   }
-  box.innerHTML = jobs.map(j => {
-    const c = COUNTRIES.find(x => x.code === j.country);
-    const fav = state.favs.includes(j.id) ? '❤️' : '🤍';
-    return `<div class="card" data-id="${j.id}">
+
+  box.innerHTML = list.map(j => {
+    const isFav = state.favs.includes(j.id);
+    return `
+    <div class="card" onclick="openDetail(${j.id})">
       <div class="card-top">
-        <div style="flex:1">
-          <p class="card-title">${j.title}</p>
-          <p class="card-company">🏢 ${j.company}</p>
+        <div>
+          <div class="card-title">${j.title}</div>
+          <div class="card-company">${j.company}</div>
         </div>
-        <button class="card-fav" data-fav="${j.id}">${fav}</button>
+        <button class="card-fav" onclick="event.stopPropagation();toggleFav(${j.id})">${isFav ? '❤️' : '🤍'}</button>
       </div>
       <div class="card-meta">
-        <span class="tag">📍 ${j.city}, ${c ? c.name : ''}</span>
-        ${j.housing ? '<span class="tag green">🏠 Житло</span>' : ''}
-        ${j.noExp ? '<span class="tag green">✅ Без досвіду</span>' : ''}
-        ${j.contract ? '<span class="tag gray">📄 Офіційно</span>' : ''}
+        <span class="tag">${getCountryName(j.country)}</span>
+        <span class="tag gray">${j.city}</span>
+        ${j.housing ? '<span class="tag green">Проживання</span>' : ''}
+        ${j.noExp ? '<span class="tag orange">Без досвіду</span>' : ''}
       </div>
-      <div class="card-salary">💰 ${money(j)}</div>
+      <div class="card-salary">${formatSalary(j)}</div>
     </div>`;
   }).join('');
-  box.querySelectorAll('.card').forEach(el => {
-    el.addEventListener('click', e => {
-      if(e.target.dataset.fav){
-        toggleFav(parseInt(e.target.dataset.fav));
-        return;
-      }
-      openDetail(parseInt(el.dataset.id));
-    });
-  });
 }
 
-/* ============ ІЗБРАНЕ ============ */
-function toggleFav(id){
-  const i = state.favs.indexOf(id);
-  if(i >= 0) state.favs.splice(i,1); else state.favs.push(id);
-  localStorage.setItem('favs', JSON.stringify(state.favs));
-  document.getElementById('favCount').textContent = state.favs.length;
-  renderJobs();
-}
-document.getElementById('favBtn').addEventListener('click', () => {
-  if(!state.favs.length){ alert('У вас поки немає збережених вакансій.'); return; }
-  state.q=''; state.country=''; state.city=''; state.profession='';
-  document.getElementById('q').value='';
-  document.getElementById('country').value='';
-  document.getElementById('city').innerHTML='<option value="">Усі міста</option>';
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  document.querySelector('.chip[data-p=""]').classList.add('active');
-  renderJobs();
-});
-
-/* ============ ВІДКРИТТЯ ВАКАНСІЇ ============ */
 function openDetail(id){
   const j = JOBS.find(x => x.id === id);
   if(!j) return;
-  const c = COUNTRIES.find(x => x.code === j.country);
-  const inner = document.getElementById('detailInner');
-  inner.innerHTML = `
+  const isFav = state.favs.includes(j.id);
+  document.getElementById('detailInner').innerHTML = `
     <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
     <div class="detail">
       <h2>${j.title}</h2>
-      <p class="company">🏢 ${j.company}</p>
+      <p class="company">${j.company} · ${getCountryName(j.country)}, ${j.city}</p>
       <div class="info-row">
-        <span class="tag">📍 ${j.city}, ${c ? c.name : ''}</span>
-        ${j.housing ? '<span class="tag green">🏠 Житло</span>' : ''}
-        ${j.noExp ? '<span class="tag green">✅ Без досвіду</span>' : ''}
-        ${j.contract ? '<span class="tag gray">📄 Офіційне</span>' : ''}
+        <span class="tag">${formatSalary(j)}</span>
+        ${j.housing ? '<span class="tag green">Проживання</span>' : ''}
+        ${j.noExp ? '<span class="tag orange">Без досвіду</span>' : ''}
+        ${j.contract ? '<span class="tag">Офіційний договір</span>' : ''}
       </div>
-      <div class="card-salary" style="font-size:18px">💰 ${money(j)} / місяць</div>
-
-      <div class="detail-section"><h3>Обов'язки</h3><p>${j.description}</p></div>
-      <div class="detail-section"><h3>Вимоги</h3><p>${j.requirements}</p></div>
-      <div class="detail-section"><h3>Умови</h3><p>${j.conditions}</p></div>
-      <div class="detail-section"><h3>Про роботодавця</h3><p>${j.about}</p></div>
+      <div class="detail-section"><h3>Опис</h3><p>${j.description}</p></div>
+      <div class="detail-section"><h3>Вимоги</h3><p>${j.requirements || '—'}</p></div>
+      <div class="detail-section"><h3>Умови</h3><p>${j.conditions || '—'}</p></div>
+      <div class="detail-section"><h3>Про компанію</h3><p>${j.about || '—'}</p></div>
     </div>
-
-    <div class="sticky-bottom" style="position:sticky;margin-top:16px">
-      <button class="btn btn-primary btn-lg" style="flex:2" onclick="openContact(${j.id})">📞 Зв'язатися</button>
-      <button class="btn btn-outline btn-lg" onclick="toggleFav(${j.id});this.textContent='${state.favs.includes(j.id)?'❤️':'🤍'}'">${state.favs.includes(j.id)?'❤️':'🤍'}</button>
-    </div>
-  `;
+    <div class="sticky-bottom" style="position:relative;margin-top:20px;border:none;padding:0;box-shadow:none">
+      <button class="btn btn-outline" onclick="toggleFav(${j.id});openDetail(${j.id})">${isFav ? '❤️ В обраному' : '🤍 В обране'}</button>
+      <button class="btn btn-primary" onclick="openContact(${j.id})">Зв'язатися</button>
+    </div>`;
   document.getElementById('detailModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal(id){
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
 }
 
-/* ============ КОНТАКТИ ============ */
 function openContact(id){
   const j = JOBS.find(x => x.id === id);
   if(!j) return;
-  document.getElementById('contactJobTitle').textContent = j.title + ' — ' + j.company;
-  const c = j.contacts || {};
+  document.getElementById('contactJobTitle').textContent = j.title + ' · ' + j.company;
   const list = [];
-  if(c.phone){
-    list.push(`<a class="contact-btn" href="tel:${c.phone.replace(/\s/g,'')}">
-      <span class="ico">📞</span><span>Позвонити<small>${c.phone}</small></span></a>`);
+  if(j.contacts.phone){
+    list.push(`<a class="contact-btn" href="tel:${j.contacts.phone}"><span class="ico">📞</span><div>Подзвонити<small>${j.contacts.phone}</small></div></a>`);
   }
-  if(c.viber && c.phone){
-    list.push(`<a class="contact-btn" href="viber://chat?number=${encodeURIComponent(c.phone.replace(/\s/g,''))}">
-      <span class="ico">💬</span><span>Написати у Viber<small>${c.phone}</small></span></a>`);
+  if(j.contacts.whatsapp){
+    list.push(`<a class="contact-btn" href="https://wa.me/${j.contacts.phone?.replace(/\D/g,'')}" target="_blank"><span class="ico">💬</span><div>WhatsApp</div></a>`);
   }
-  if(c.whatsapp && c.phone){
-    list.push(`<a class="contact-btn" href="https://wa.me/${c.phone.replace(/[^\d]/g,'')}" target="_blank" rel="noopener">
-      <span class="ico">💬</span><span>Написати у WhatsApp<small>${c.phone}</small></span></a>`);
+  if(j.contacts.viber){
+    list.push(`<a class="contact-btn" href="viber://chat?number=${j.contacts.phone?.replace(/\D/g,'')}"><span class="ico">💜</span><div>Viber</div></a>`);
   }
-  if(c.telegram){
-    list.push(`<a class="contact-btn" href="https://t.me/${c.telegram}" target="_blank" rel="noopener">
-      <span class="ico">✈️</span><span>Написати у Telegram<small>@${c.telegram}</small></span></a>`);
+  if(j.contacts.telegram){
+    list.push(`<a class="contact-btn" href="https://t.me/${j.contacts.telegram}" target="_blank"><span class="ico">✈️</span><div>Telegram</div></a>`);
   }
-  if(c.email){
-    list.push(`<a class="contact-btn" href="mailto:${c.email}?subject=Вакансія: ${encodeURIComponent(j.title)}">
-      <span class="ico">✉️</span><span>Написати на Email<small>${c.email}</small></span></a>`);
+  if(j.contacts.form){
+    list.push(`<button class="contact-btn" onclick="closeModal('contactModal');openApply(${j.id})"><span class="ico">📝</span><div>Залишити заявку<small>Без дзвінка</small></div></button>`);
   }
-  if(c.form){
-    list.push(`<button class="contact-btn" onclick="closeModal('contactModal');openApply(${j.id})">
-      <span class="ico">📩</span><span>Залишити заявку<small>Без реєстрації</small></span></button>`);
-  }
-  if(!list.length){
-    list.push('<div class="empty">Роботодавець не вказав контакти.</div>');
-  }
+  if(!list.length) list.push('<div class="empty">Роботодавець не вказав контакти.</div>');
   document.getElementById('contactList').innerHTML = list.join('');
   document.getElementById('contactModal').classList.add('open');
 }
 
-/* ============ ЗАЯВКА ============ */
-let applyJobId = null;
 function openApply(id){
   applyJobId = id;
-  document.getElementById('formContent').style.display = '';
-  document.getElementById('applyForm').reset();
-  document.querySelectorAll('#applyForm .checkbox input')[0].checked = true;
+  document.getElementById('formContent').innerHTML = `
+    <h2 style="margin:4px 0 4px">Залишити заявку</h2>
+    <p style="color:var(--muted);margin:0">Коротка форма. Без реєстрації та пароля.</p>
+    <form id="applyForm" class="form-row">
+      <div class="field"><label>Ваше ім'я</label><input required id="fName" placeholder="Введіть ім'я"></div>
+      <div class="field"><label>Номер телефону</label><input required id="fPhone" type="tel" placeholder="+420 ___ ___ ___"></div>
+      <div class="field"><label>Як з вами зв'язатися?</label>
+        <div class="checkbox-grid">
+          <label class="checkbox"><input type="checkbox" name="ch" value="Телефон" checked> Телефон</label>
+          <label class="checkbox"><input type="checkbox" name="ch" value="Viber"> Viber</label>
+          <label class="checkbox"><input type="checkbox" name="ch" value="WhatsApp"> WhatsApp</label>
+          <label class="checkbox"><input type="checkbox" name="ch" value="Telegram"> Telegram</label>
+        </div>
+      </div>
+      <div class="field"><label>Повідомлення</label><textarea id="fMsg" rows="3" placeholder="Наприклад: Доброго дня, зацікавила ваша вакансія."></textarea></div>
+      <button type="submit" class="btn btn-green btn-lg btn-block">Відправити заявку</button>
+    </form>`;
+  document.getElementById('applyForm').addEventListener('submit', handleApply);
   document.getElementById('formModal').classList.add('open');
 }
-document.getElementById('applyForm').addEventListener('submit', e => {
+
+let applyJobId = null;
+function handleApply(e){
   e.preventDefault();
-  // Тут пізніше буде відправка на backend.
-  // Поки що зберігаємо локально.
   const data = {
     jobId: applyJobId,
     name: document.getElementById('fName').value,
     phone: document.getElementById('fPhone').value,
-    channels: [...document.querySelectorAll('#applyForm .checkbox input:checked')].map(x=>x.value),
+    channels: [...document.querySelectorAll('#applyForm .checkbox input:checked')].map(x => x.value),
     message: document.getElementById('fMsg').value,
     date: new Date().toISOString()
   };
-  const arr = JSON.parse(localStorage.getItem('applications')||'[]');
+  const arr = JSON.parse(localStorage.getItem('applications') || '[]');
   arr.push(data);
   localStorage.setItem('applications', JSON.stringify(arr));
   document.getElementById('formContent').innerHTML = `
     <div class="success">
       <div class="big">✅</div>
       <h3>Заявку відправлено</h3>
-      <p>Роботодавець отримає ваші дані та зв'яжеться з вами обраним способом.</p>
-      <button class="btn btn-primary btn-lg btn-block" onclick="closeModal('formModal')">Повернутися до вакансій</button>
+      <p>Роботодавець отримає ваші дані та зв'яжеться з вами.</p>
+      <button class="btn btn-primary btn-lg btn-block" onclick="closeModal('formModal')">Повернутися</button>
     </div>`;
+}
+
+function toggleFav(id){
+  const idx = state.favs.indexOf(id);
+  if(idx > -1) state.favs.splice(idx, 1);
+  else state.favs.push(id);
+  localStorage.setItem('favs', JSON.stringify(state.favs));
+  document.getElementById('favCount').textContent = state.favs.length;
+  renderJobs();
+}
+
+function showFavorites(){
+  state.showFavOnly = !state.showFavOnly;
+  renderJobs();
+  if(state.showFavOnly){
+    document.querySelector('.results').scrollIntoView({behavior:'smooth'});
+  }
+}
+
+/* ============ РОБОТОДАВЕЦЬ ============ */
+document.getElementById('employerForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const newId = Math.max(...JOBS.map(j => j.id), 0) + 1;
+  const job = {
+    id: newId,
+    title: document.getElementById('eTitle').value,
+    company: document.getElementById('eCompany').value,
+    country: document.getElementById('eCountry').value,
+    city: document.getElementById('eCity').value,
+    salMin: +document.getElementById('eSalMin').value || 0,
+    salMax: +document.getElementById('eSalMax').value || 0,
+    housing: false, noExp: true, contract: true,
+    description: document.getElementById('eDesc').value,
+    requirements: document.getElementById('eReq').value,
+    conditions: document.getElementById('eCond').value,
+    about: '',
+    contacts: {
+      phone: document.getElementById('ePhone').value || '',
+      form: true
+    }
+  };
+  JOBS.unshift(job);
+  document.getElementById('employerContent').innerHTML = `
+    <div class="success">
+      <div class="big">✅</div>
+      <h3>Вакансію опубліковано!</h3>
+      <p>Вона вже з'явилася у списку.</p>
+      <button class="btn btn-primary btn-lg btn-block" onclick="closeModal('employerModal');renderJobs()">Переглянути вакансії</button>
+    </div>`;
+  renderJobs();
 });
 
 /* ============ ПОДІЇ ============ */
@@ -587,15 +700,18 @@ document.getElementById('country').addEventListener('change', e => {
   state.country = e.target.value;
   state.city = '';
   renderCityOptions(state.country);
+  state.showFavOnly = false;
   renderJobs();
 });
 document.getElementById('city').addEventListener('change', e => {
   state.city = e.target.value;
+  state.showFavOnly = false;
   renderJobs();
 });
 document.getElementById('searchForm').addEventListener('submit', e => {
   e.preventDefault();
   state.q = document.getElementById('q').value;
+  state.showFavOnly = false;
   renderJobs();
   document.querySelector('.results').scrollIntoView({behavior:'smooth'});
 });
